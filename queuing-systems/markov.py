@@ -62,17 +62,20 @@ def multiple_queues():
       if (loss(users, buf) < max_loss and multiplied_system_delay_multiple_queues(users, buf) < multiplication_max):
         at_least_one_success = True
         print("System fits requirements for " + str(users) + " users and buffer " + str(buf))
+        print("Loss " + str(loss(users,buf)) + ", delay_multiple " + str(multiplied_system_delay_multiple_queues(users, buf)))
     users += 1
     
 def single_queue():
   users = 1
   at_least_one_success = True
+
   while(at_least_one_success):
     at_least_one_success = False
     for buf in range(1,100):
       if(loss(users, buf) < max_loss and multiplied_system_delay_single_queue(users, buf) < multiplication_max):
       	at_least_one_success = True
       	print("System fits requirements for " + str(users) + " users and buffer " + str(buf))
+      	print("Loss " + str(loss(users, buf)) + ", delay_single " + str(multiplied_system_delay_single_queue(users, buf)))
     users += 1
       
 """Run the program"""
